@@ -1,5 +1,5 @@
 
-import tentsData from "../json/tents.json";
+//import tentsData from "/json/tents.json";
 
 function convertToJson(res) {
   if (res.ok) {
@@ -12,7 +12,7 @@ function convertToJson(res) {
 export default class ProductData {
   constructor(category) {
     this.category = category;
-    this.path = `../json/${this.category}.json`;
+    this.path = `/json/${this.category}.json`;
     //this.products = tentsData;
   }
   getData() {
