@@ -1,3 +1,6 @@
+
+//import tentsData from "../json/tents.json";
+
 function convertToJson(res) {
   if (res.ok) {
     return res.json();
@@ -9,15 +12,18 @@ function convertToJson(res) {
 export default class ProductData {
   constructor(category) {
     this.category = category;
-    this.path = `../json/${this.category}.json`;
+    this.path = `/json/${this.category}.json`;
+    //this.products = tentsData;
   }
   getData() {
     return fetch(this.path)
       .then(convertToJson)
       .then((data) => data);
+    //return Promise.resolve(this.products);
   }
   async findProductById(id) {
     const products = await this.getData();
     return products.find((item) => item.Id === id);
   }
 }
+
