@@ -8,6 +8,7 @@ export function qs(selector, parent = document) {
 // retrieve data from localstorage
 export function getLocalStorage(key) {
   return JSON.parse(localStorage.getItem(key));
+  
 }
 // save data to local storage
 export function setLocalStorage(key, data) {
@@ -36,7 +37,13 @@ export function renderListWithTemplate(template, parentElement, list, position =
     parentElement.innerHTMl = "";
   }
     parentElement.insertAdjacentHTML(position, htmlStrings.join(""));
-  }
+}
+export function getCartCount() {
+  const cart = JSON.parse(localStorage.getItem("so-cart")) || [];
+  return cart.length;
+}
+
+
 
 
 

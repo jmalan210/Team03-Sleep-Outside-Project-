@@ -1,4 +1,4 @@
-import {getParam } from "./utils.mjs";
+import {getParam, getCartCount } from "./utils.mjs";
 import ProductData from "./ProductData.mjs";
 import productDetails from "./ProductDetails.mjs";
 
