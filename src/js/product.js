@@ -3,7 +3,7 @@
 
 import { getParam } from "./utils.mjs"; //Get the product parameter, the product id, from the URL using the helper function getParam
 import ProductData from "./ProductData.mjs";
-import ProductDetails from "./productDetails.mjs";
+import ProductDetails from "./ProductDetails.mjs";
 import { renderProductList } from "./main.js";
 
 

@@ -1,22 +1,11 @@
-export async function renderProductList(dataSource) {
-  const products = await dataSource.getData();
-  const list = document.querySelector(".product-list");
+import { setLocalStorage, getCartCount } from "./utils.mjs";
+import ProductList from "./ProductList.mjs";
+import ProductData from "./ProductData.mjs";
 
-  list.innerHTML = "";
+const dataSource = new ProductData("tents");
 
-  products.forEach((product) => {
-    const li = document.createElement("li");
-    li.classList.add("product-card");
+const element = document.querySelector(".product-list");
 
-    li.innerHTML = `
-      <a href="/product_pages/index.html?product=${product.Id}">
-        <img src="${product.Image}" alt="${product.NameWithoutBrand}" />
-        <h3 class="card__brand">${product.Brand.Name}</h3>
-        <h2 class="card__name">${product.NameWithoutBrand}</h2>
-        <p class="product-card__price">$${product.FinalPrice}</p>
-      </a>
-    `;
+const productList = new ProductList("Tents", dataSource, element);
 
-    list.appendChild(li);
-  });
-}
+productList.init();
