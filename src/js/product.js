@@ -1,26 +1,23 @@
-import { getLocalStorage, setLocalStorage, getParam } from "./utils.mjs";
+//Import the functions that are needed in this module from utils.mjs, ProductData.mjs, 
+// and ProductDetails.mjs
+
+import { getParam } from "./utils.mjs"; //Get the product parameter, the product id, from the URL using the helper function getParam
 import ProductData from "./ProductData.mjs";
+import ProductDetails from "./productDetails.mjs";
+import { renderProductList } from "./main.js";
 
-const dataSource = new ProductData("tents");
 
-function addProductToCart(product) {
-  const cartItems = getLocalStorage("so-cart") || []; // get cart array of items from local storage if null set to empty array
-  console.log("type of cartItems:", typeof cartItems);
-  console.log("Is it an array?", Array.isArray(cartItems));
-  cartItems.push(product);
-  setLocalStorage("so-cart",cartItems);
+const dataSource = new ProductData("tents"); //Create an instance of the ProductData data class with the URL it should use to look for products
+const productId = getParam("product");
 
-  console.log("cartItems:", cartItems);
-  // console.log("testArray", testArray);
+if (productId) {
+  document.querySelector(".product-list").style.display = "none";
+  //document.getElementById("page-title").textContent = "Product Details";
+
+  const product = new ProductDetails(productId, dataSource); // Use both of these variables to create an instance of the ProductDetails class
+  product.init(); //Call the init() method using the class instance to finish setting everything up
+} else {
+  renderProductList(dataSource);
 }
 
-// add to cart button event handler
-async function addToCartHandler(e) {
-  const product = await dataSource.findProductById(e.target.dataset.id);
-  addProductToCart(product);
-}
 
-// add listener to Add to Cart button
-document
-  .getElementById("addToCart")
-  .addEventListener("click", addToCartHandler);

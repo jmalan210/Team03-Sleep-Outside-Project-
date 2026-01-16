@@ -1,18 +1,22 @@
-import { setLocalStorage } from "./utils.mjs";
-import ProductData from "./ProductData.mjs";
+export async function renderProductList(dataSource) {
+  const products = await dataSource.getData();
+  const list = document.querySelector(".product-list");
 
-const dataSource = new ProductData("tents");
+  list.innerHTML = "";
 
-function addProductToCart(product) {
-  setLocalStorage("so-cart", product);
+  products.forEach((product) => {
+    const li = document.createElement("li");
+    li.classList.add("product-card");
+
+    li.innerHTML = `
+      <a href="/product_pages/index.html?product=${product.Id}">
+        <img src="${product.Image}" alt="${product.NameWithoutBrand}" />
+        <h3 class="card__brand">${product.Brand.Name}</h3>
+        <h2 class="card__name">${product.NameWithoutBrand}</h2>
+        <p class="product-card__price">$${product.FinalPrice}</p>
+      </a>
+    `;
+
+    list.appendChild(li);
+  });
 }
-// add to cart button event handler
-async function addToCartHandler(e) {
-  const product = await dataSource.findProductById(e.target.dataset.id);
-  addProductToCart(product);
-}
-
-// add listener to Add to Cart button
-document
-  .getElementById("addToCart")
-  .addEventListener("click", addToCartHandler);
