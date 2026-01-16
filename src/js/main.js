@@ -1,7 +1,6 @@
-import { setLocalStorage } from "./utils.mjs";
+import { setLocalStorage, getCartCount } from "./utils.mjs";
 import ProductData from "./ProductData.mjs";
 import ProductList from "./ProductList.mjs";
-import { getCartCount } from "./CartCount.mjs";
 
 
 
@@ -16,6 +15,7 @@ const productList = new ProductList("Tents", dataSource, element);
 //
 
 productList.init();
+document.getElementById("counter").innerText = getCartCount();
 
 
 // function addProductToCart(product) {
