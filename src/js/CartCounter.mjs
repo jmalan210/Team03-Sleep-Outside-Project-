@@ -2,13 +2,18 @@ import { getCartCount } from "./utils.mjs";
 
 
 const count = getCartCount();
+let counter = document.getElementById("counter");
 
-if (count > 0) {
-    const counter = document.createElement("div");
+if (!counter) {
+    counter = document.createElement("div");
     counter.id = "counter";
-    counter.textContent = count;
     document.querySelector(".cart").prepend(counter);
 }
-else {
+
+if (count > 0) {
+    counter.textContent = count;
     counter.removeAttribute("data-hidden");
+}
+else {
+    counter.setAttribute("data-hidden", "true");
  }

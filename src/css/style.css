@@ -146,6 +146,10 @@ button {
   z-index: 9999; 
 }
 
+#counter[data-hidden="true"] {
+  display: none;
+}
+
 /* End cart icon styles */
 
 .mission {
