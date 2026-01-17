@@ -1,4 +1,6 @@
-import { getLocalStorage, getCartCount } from "./utils.mjs";
+import { getLocalStorage } from "./utils.mjs";
+import { updateCartCounter } from "./CartCounter.mjs";
+import { GetCartTotal } from "./CartTotal.mjs";
 
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart") || [];
@@ -10,6 +12,7 @@ function renderCartContents() {
 function cartItemTemplate(item) {
   const newItem = `<li class="cart-card divider">
   <a href="#" class="cart-card__image">
+  <div class="remover" data-id=${item.Id}>X</div>
     <img
       src="${item.Image}"
       alt="${item.Name}"
@@ -26,4 +29,25 @@ function cartItemTemplate(item) {
   return newItem;
 }
 
+
+function removeItemFromCart(id) {
+  let cart = getLocalStorage("so-cart") || [];
+        cart = cart.filter(item => item.Id !== id);
+        localStorage.setItem("so-cart", JSON.stringify(cart));
+  renderCartContents();
+  updateCartCounter();
+  GetCartTotal();
+    }
+
 renderCartContents();
+
+const productList = document.querySelector(".product-list");
+if (productList) {
+  productList.addEventListener("click", (e) => {
+    if (e.target.classList.contains("remover")) {
+      const id = e.target.dataset.id;
+      console.log("removing", id);
+      removeItemFromCart(id)
+    }
+  });
+}

@@ -1,28 +1,36 @@
 import { getLocalStorage, getCartCount} from "./utils.mjs";
 
-const divTotal = document.querySelector(".cart-footer");
-const displayTotal = document.querySelector(".cart-total");
+
 
 //Total in Cart Feature
-function GetCartTotal() {
-    const cartItems = getLocalStorage("so-cart");
+export function GetCartTotal() {
+    const divTotal = document.querySelector(".cart-footer");
+    const displayTotal = document.querySelector(".cart-total");
+
+    if (!divTotal || !displayTotal) return 0;
+
+    const cartItems = getLocalStorage("so-cart") ||[];
     let total = 0.0;
 
     cartItems.forEach(item => {
         total += parseFloat(item.FinalPrice);
     });
 
-    return total;
+    
+
+    if (cartItems.length === 0) {
+        divTotal?.classList.add("hide");
+        displayTotal && (displayTotal.textContent = "");
+    } else {
+        divTotal?.classList.remove("hide");
+        displayTotal && (displayTotal.textContent = `Total: $${total.toFixed(2)}`)
+    }
+    
+    return total
 }
 
-//Check if cart is empty
-if (getCartCount() === 0) {
-    divTotal.classList.toggle("hide");
-}
-else {
-    let subTotal = GetCartTotal();
-    divTotal.classList.toggle("cart-footer");
-    displayTotal.textContent += `$${subTotal}`;
-}
+GetCartTotal();
+
+
 
 

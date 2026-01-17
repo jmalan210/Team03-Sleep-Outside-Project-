@@ -1,7 +1,7 @@
 import { getCartCount } from "./utils.mjs";
 
-
-const count = getCartCount();
+export function updateCartCounter() {
+    const count = getCartCount();
 let counter = document.getElementById("counter");
 
 if (!counter) {
@@ -17,3 +17,8 @@ if (count > 0) {
 else {
     counter.setAttribute("data-hidden", "true");
  }
+
+    
+}
+
+updateCartCounter();

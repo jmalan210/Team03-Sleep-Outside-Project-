@@ -1,4 +1,5 @@
 import { getCartCount, getLocalStorage, setLocalStorage } from "./utils.mjs";
+import { updateCartCounter } from "./CartCounter.mjs";
 
 export default class productDetails{
     constructor(productId, dataSource) {
@@ -24,10 +25,14 @@ export default class productDetails{
         document.getElementById("counter").innerText = getCartCount();
 
         console.log("cartItems:", cartItems);
+        updateCartCounter();
         
 
         
     }
+
+    
+
     renderProductDetails() {
         productDetailsTemplate(this.product);
     }
