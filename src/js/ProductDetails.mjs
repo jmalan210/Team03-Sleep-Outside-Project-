@@ -37,7 +37,20 @@ export default class productDetails{
 function productDetailsTemplate(product) {
     document.querySelector('h2').textContent = product.Brand.Name;
     document.querySelector('h3').textContent = product.NameWithoutBrand;
-
+    //console.log("product= ", product);
+    //******************Code for Add discount to product detail pages**************/
+    //*****************************************************************************/
+    const discount = document.querySelector('h3');
+    const retailPrice = document.createElement('h4');
+    const amountDiscounted = document.createElement('h4');
+    
+    retailPrice.innerHTML = `Retail price: $${parseInt(product.SuggestedRetailPrice)}`;
+    amountDiscounted.innerHTML=`Discount: $${parseInt(product.SuggestedRetailPrice)-parseInt(product.ListPrice)}`;
+    //discount.appendChild(newLine);
+    discount.appendChild(retailPrice);
+    discount.appendChild(amountDiscounted);
+    //*****************************************************************************/
+    //*****************************************************************************/
     const productImage = document.getElementById('productImage');
     productImage.src = product.Image;
     productImage.alt = product.NameWithoutBrand;

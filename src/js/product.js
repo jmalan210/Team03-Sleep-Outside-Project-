@@ -1,4 +1,4 @@
-import {getParam, getCartCount } from "./utils.mjs";
+import { getParam, getCartCount } from "./utils.mjs";
 import ProductData from "./ProductData.mjs";
 import productDetails from "./ProductDetails.mjs";
 
@@ -7,7 +7,6 @@ const productId = getParam("product");
 
 const product = new productDetails(productId, dataSource);
 product.init();
-
 
 // add to cart button event handler
 
@@ -23,6 +22,3 @@ product.init();
 // document
 //   .getElementById("addToCart")
 //   .addEventListener("click", addToCartHandler);
-
-
-

@@ -132,7 +132,6 @@ button {
   fill: gray;
 }
 
-
 #counter {
   display: block;
   background-color: var(--primary-color);
@@ -143,7 +142,7 @@ button {
   position: absolute;
   top: 20%;
   left: 40%;
-  z-index: 9999; 
+  z-index: 9999;
 }
 
 #counter[data-hidden="true"] {
