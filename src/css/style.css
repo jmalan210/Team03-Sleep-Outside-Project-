@@ -90,7 +90,7 @@ p {
   margin-top: -1.3em;
 }
 
-.logo--square>div {
+.logo--square > div {
   margin-top: -1.7em;
 }
 
@@ -175,7 +175,7 @@ button {
   display: block;
 }
 
-#cart-products{
+#cart-products {
   grid-template-columns: 75% auto;
   column-gap: 1em;
 }

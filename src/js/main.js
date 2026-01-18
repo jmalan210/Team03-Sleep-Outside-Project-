@@ -1,4 +1,4 @@
-import { setLocalStorage, getCartCount } from "./utils.mjs";
+// import { setLocalStorage, getCartCount } from "./utils.mjs";
 import ProductData from "./ProductData.mjs";
 import ProductList from "./ProductList.mjs";
 
