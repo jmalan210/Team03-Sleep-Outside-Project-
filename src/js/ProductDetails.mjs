@@ -16,11 +16,10 @@ export default class productDetails{
     }
     addProductToCart() {
         const cartItems = getLocalStorage("so-cart") || []; // get cart array of items from local storage if null set to empty array
-        // console.log("before push:", getLocalStorage("so-cart"));
+        
         cartItems.push(this.product);
         setLocalStorage("so-cart", cartItems);
-        // console.log("after push:", getLocalStorage("so-cart"));
-        // console.log("Counter updated to:", getCartCount());
+        
         document.getElementById("counter").innerText = getCartCount();
 
         console.log("cartItems:", cartItems);
