@@ -44,7 +44,7 @@ export function getCartCount() {
 }
 
 export function renderWithTemplate(template, parentElement, data, callback) {
-  parentElement.innerHTMl = template;
+  parentElement.innerHTML = template;
   if (callback) {
     callback(data);
   }
