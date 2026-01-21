@@ -1,4 +1,4 @@
-import { setLocalStorage, getCartCount } from "./utils.mjs";
+import { setLocalStorage, getCartCount, loadHeaderFooter } from "./utils.mjs";
 import ProductData from "./ProductData.mjs";
 import ProductList from "./ProductList.mjs";
 
@@ -11,6 +11,7 @@ const productList = new ProductList("Tents", dataSource, element);
 //
 
 productList.init();
+loadHeaderFooter();
 
 // function addProductToCart(product) {
 //   setLocalStorage("so-cart", product);

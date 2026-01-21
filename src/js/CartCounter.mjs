@@ -7,7 +7,7 @@ let counter = document.getElementById("counter");
 if (!counter) {
     counter = document.createElement("div");
     counter.id = "counter";
-    document.querySelector(".cart").prepend(counter);
+    //document.querySelector(".cart").prepend(counter);
 }
 
 if (count > 0) {
