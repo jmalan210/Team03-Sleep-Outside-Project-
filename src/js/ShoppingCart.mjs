@@ -10,9 +10,9 @@ function cartCardTemplate(product) {
               />
             </a>
             <a href="product_pages/?product=${product.Id}">
-              <h2 class="card__name">${product.Brand.Name}<</h2>
+              <h2 class="card__name">${product.Brand.Name}</h2>
             </a>
-            <p class="cart-card__color">${product.Colors.ColorName}</p>
+            <p class="cart-card__color">${product.Colors[0].ColorName}</p>
             <p class="cart-card__quantity">qty: 1</p>
             <p class="cart-card__price">$${product.FinalPrice}</p>
         </li>
@@ -21,8 +21,7 @@ function cartCardTemplate(product) {
 
 export default class CartList {
     constructor(listElement) {
-        //this.category = category;
-        //this.dataSource = dataSource;
+       
         this.listElement = listElement;
     }
     async init() {

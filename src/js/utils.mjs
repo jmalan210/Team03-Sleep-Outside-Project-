@@ -34,7 +34,7 @@ export function renderListWithTemplate(template, parentElement, list, position =
   const htmlStrings = list.map(template);
   //if clear is true, we need to clear out parent contents
   if (clear) {
-    parentElement.innerHTMl = "";
+    parentElement.innerHTML = "";
   }
     parentElement.insertAdjacentHTML(position, htmlStrings.join(""));
 }
@@ -66,6 +66,7 @@ export async function loadHeaderFooter(){
   renderWithTemplate(templateFooter, footer);
 }
 
+//cart counter functioning.  Gets called as a callback function when renderWithTemplate is called for the dynamic header//
 export function initCartCounter() {
    
     const cartIcon = document.querySelector(".cart");
