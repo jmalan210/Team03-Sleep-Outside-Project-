@@ -34,7 +34,7 @@ export function renderListWithTemplate(template, parentElement, list, position =
   const htmlStrings = list.map(template);
   //if clear is true, we need to clear out parent contents
   if (clear) {
-    parentElement.innerHTMl = "";
+    parentElement.innerHTML = "";
   }
     parentElement.insertAdjacentHTML(position, htmlStrings.join(""));
 }
@@ -43,6 +43,53 @@ export function getCartCount() {
   return cart.length;
 }
 
+export function renderWithTemplate(template, parentElement, data, callback) {
+  parentElement.innerHTML = template;
+  if (callback) {
+    callback(data);
+  }
+}
+
+export async function loadTemplate(path) {
+  const response = await fetch(path);
+  return await response.text();
+}
+
+export async function loadHeaderFooter(){
+  const templateHeader = await loadTemplate("../partials/header.html");
+  const templateFooter = await loadTemplate("../partials/footer.html");
+
+  const header = document.querySelector("#dynamic-header");
+  const footer = document.querySelector("#dynamic-footer");
+
+  renderWithTemplate(templateHeader, header, null, initCartCounter);
+  renderWithTemplate(templateFooter, footer);
+}
+
+//cart counter functioning.  Gets called as a callback function when renderWithTemplate is called for the dynamic header//
+export function initCartCounter() {
+   
+    const cartIcon = document.querySelector(".cart");
+    if (!cartIcon) return;
+    
+    let counter = document.getElementById("counter");
+ 
+    if (!counter) {
+    counter = document.createElement("div");
+    counter.id = "counter";
+        cartIcon.prepend(counter);
+    }
+    
+    const count = getCartCount();
+
+    if (count > 0) {
+    counter.textContent = count;
+    counter.removeAttribute("data-hidden");
+}
+    else {
+    counter.setAttribute("data-hidden", "true");
+ }
+};
 
 
 
