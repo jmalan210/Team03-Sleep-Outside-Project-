@@ -19,12 +19,11 @@ export default class ProductList {
         this.category = category;
         this.dataSource = dataSource;
         this.listElement = listElement;
-       
-    
+        this.products = []; //store products here for sorting
     }
     async init() {
-        const list = await this.dataSource.getData(this.category);
-        this.renderList(list);
+        this.products = await this.dataSource.getData(this.category);
+        this.renderList(this.products);
         const formatCategory = this.category.replace(/-/g, " ")
         document.querySelector(".title").textContent = formatCategory;
             }
@@ -32,7 +31,49 @@ export default class ProductList {
     renderList(list) {
         renderListWithTemplate(productCardTemplate, this.listElement, list);
     }
+    sortList(sortRule, order = "asc") {
+        const sortedProducts = this.products.map(item => item); //copy the array
+        
+        sortedProducts.sort((prodA, prodB) => {
+            let valueProdA = prodA[sortRule];
+            let valueProdB = prodB[sortRule];
+            let comparison = 0;
 
+            //NOTE: fix sorting, not sorting accoring to price
+
+            //If comparing a string:
+            if (typeof valueProdA === "string") {
+                let stringProdA = valueProdA.toLowerCase();
+                let stringProdB = valueProdB.toLowerCase();
+
+                if (stringProdA < stringProdB) {
+                    // stringProdA moves to the left or goes first on the list
+                    comparison = -1;
+                }
+                else if (stringProdA > stringProdB) {
+                    // stringProdA moves to the right or goes after stringProdB on the list
+                    comparison = 1;
+                } else {
+                    // both strings are the same, keep their spot in the list
+                    comparison = 0;
+                }
+            }
+            //If comparing numbers:
+            else{
+                comparison = valueProdA - valueProdB;
+            }
+
+            //Check the order
+            if (order === "desc") {
+                return comparison * -1; // list in descending order
+            }
+
+            return comparison; //list in ascending order
+        });
+
+        //render the sorted list on the list.element
+        this.renderList(sortedProducts);
+    }
     
 }
 
