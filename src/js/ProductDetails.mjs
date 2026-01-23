@@ -1,4 +1,4 @@
-import { getCartCount, getLocalStorage, setLocalStorage } from "./utils.mjs";
+import { getCartCount, getLocalStorage, setLocalStorage, initCartCounter } from "./utils.mjs";
 
 export default class productDetails{
     constructor(productId, dataSource) {
@@ -17,20 +17,25 @@ export default class productDetails{
     addProductToCart() {
         const cartItems = getLocalStorage("so-cart") || []; // get cart array of items from local storage if null set to empty array
         // console.log("before push:", getLocalStorage("so-cart"));
-        cartItems.push(this.product);
-        setLocalStorage("so-cart", cartItems);
-        // console.log("after push:", getLocalStorage("so-cart"));
-        // console.log("Counter updated to:", getCartCount());
-        document.getElementById("counter").innerText = getCartCount();
+        const existsInCart = cartItems.find(item => item.Id === this.product.Id);
+        if (existsInCart) {
+            existsInCart.quantity += 1;
+        } else {
+            cartItems.push({...this.product, quantity: 1});
+            
+        }
 
-        console.log("cartItems:", cartItems);
+       
         
-
+        setLocalStorage("so-cart", cartItems);
+         initCartCounter();
         
     }
     renderProductDetails() {
         productDetailsTemplate(this.product);
     }
+
+    
 
 }
 

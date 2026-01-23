@@ -40,7 +40,8 @@ export function renderListWithTemplate(template, parentElement, list, position =
 }
 export function getCartCount() {
   const cart = JSON.parse(localStorage.getItem("so-cart")) || [];
-  return cart.length;
+  return cart.reduce(
+    (total, item) => total + (item.quantity ?? 1), 0  );
 }
 
 export function renderWithTemplate(template, parentElement, data, callback) {
@@ -64,6 +65,8 @@ export async function loadHeaderFooter(){
 
   renderWithTemplate(templateHeader, header, null, initCartCounter);
   renderWithTemplate(templateFooter, footer);
+
+  initCartCounter();
 }
 
 //cart counter functioning.  Gets called as a callback function when renderWithTemplate is called for the dynamic header//
