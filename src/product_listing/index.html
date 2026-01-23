@@ -1,26 +1,37 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sleep Outside | Product Listing</title>
-    <link rel="stylesheet" href="/css/style.css" />
-   
-    <script src="../js/product-listing.js" type="module"></script>
-  </head>
 
-  <body>
-    <header class="divider" id="dynamic-header">
-      
-    </header>
-    <main class="divider">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sleep Outside | Product Listing</title>
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <script src="../js/product-listing.js" type="module"></script>
+</head>
+
+<body>
+  <header class="divider" id="dynamic-header">
+
+  </header>
+  <main class="divider">
+    <section class="products">
       <h2>Top Products: <span class="title highlight"></span></h2>
+      <div class="filterMenu">
+        <button class="filterBtn">Filter Results </button>
+        <div class="filterMenu-content">
+          <button id="filter-brandNameBtn-AZ">Brand Name: A-Z</button>
+          <button id="filter-brnadNameBtn-ZA">Brand Name: Z-A</button>
+          <button id="filter-priceBtn-LH">Price: Lowest-Highest</button>
+          <button id="filter-priceBtn-HL">Price:Highest-Lowest</button>
+        </div>
+      </div>
       <div class="product-list"></div>
-      
-      
-    </main>
-    <footer id="dynamic-footer">
+    </section>
+  </main>
+  <footer id="dynamic-footer">
 
-    </footer>
-  </body>
+  </footer>
+</body>
+
 </html>
