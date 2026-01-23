@@ -10,6 +10,9 @@ const element = document.querySelector(".product-list");
 
 const productList = new ProductList(category, dataSource, element);
 
+const title = document.querySelector(".title");
+title.textContent = category;
+
 //
 
 productList.init();
