@@ -26,6 +26,9 @@ export default class ProductList {
         const list = await this.dataSource.getData(this.category);
         this.renderList(list);
         document.querySelector(".title").textContent = this.category;
+        if (this.category === "sleeping-bags") {
+            document.querySelector(".title").textContent = "sleeping bags"
+        }
 
     }
 
