@@ -25,12 +25,9 @@ export default class ProductList {
     async init() {
         const list = await this.dataSource.getData(this.category);
         this.renderList(list);
-        document.querySelector(".title").textContent = this.category;
-        if (this.category === "sleeping-bags") {
-            document.querySelector(".title").textContent = "sleeping bags"
-        }
-
-    }
+        const formatCategory = this.category.replace(/-/g, " ")
+        document.querySelector(".title").textContent = formatCategory;
+            }
 
     renderList(list) {
         renderListWithTemplate(productCardTemplate, this.listElement, list);
