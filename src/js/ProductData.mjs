@@ -24,8 +24,6 @@ export default class ProductData {
     const data = await convertToJson(response)
     console.log(data.Result);
     return data.Result;
-    
-   
   }
 }
 
