@@ -114,6 +114,15 @@ button {
   border-bottom: 2px solid var(--primary-color);
 }
 
+.divider h2 {
+  text-align: center;
+
+}
+
+.highlight {
+  text-transform: capitalize;
+}
+
 /* End utility classes */
 
 /* Cart icon styles */
@@ -167,6 +176,12 @@ button {
   margin: 0 auto;
   width: 50%;
   text-align: center;
+}
+
+#product-icons {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 50px;
 }
 
 .products {
