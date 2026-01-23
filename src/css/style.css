@@ -184,6 +184,13 @@ button {
   padding-top: 50px;
 }
 
+.icon-title {
+  text-align: center;
+  font-family: var(--font-headline);
+  color: var(--tertiary-color);
+  font-size: 1.5rem;
+}
+
 .products {
   margin-top: 2rem;
   padding: 1rem;
