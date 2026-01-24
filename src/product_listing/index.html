@@ -1,21 +1,37 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sleep Outside | Home</title>
-    <link rel="stylesheet" href="/css/style.css" />
-    <script src="../js/product-listing.js" type="module"></script>
-  </head>
 
-  <body>
-    <header class="divider" id="dynamic-header"></header>
-    <main class="divider">
-      <section class="products">
-        <h2></h2>
-        <ul class="product-list"></ul>
-      </section>
-    </main>
-    <footer id="dynamic-footer"></footer>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sleep Outside | Product Listing</title>
+  <link rel="stylesheet" href="../css/style.css" />
+
+  <script src="../js/product-listing.js" type="module"></script>
+</head>
+
+<body>
+  <header class="divider" id="dynamic-header">
+
+  </header>
+  <main class="divider">
+    <section class="products">
+      <h2>Top Products: <span class="title highlight"></span></h2>
+      <div class="filterMenu">
+        <button class="filterBtn" id="openFilterBtn" >Filter Results <span id="arrow">⮝</span></button>
+        <div class="filterMenu-content hidden">
+          <button class="filterBtn" id="filter-brandNameBtn-AZ">Brand Name: A-Z</button>
+          <button class="filterBtn" id="filter-brandNameBtn-ZA">Brand Name: Z-A</button>
+          <button class="filterBtn" id="filter-priceBtn-LH">Price: Lowest-Highest</button>
+          <button class="filterBtn" id="filter-priceBtn-HL">Price: Highest-Lowest</button>
+        </div>
+      </div>
+      <div class="product-list"></div>
+    </section>
+  </main>
+  <footer id="dynamic-footer">
+
+  </footer>
+</body>
+
 </html>
