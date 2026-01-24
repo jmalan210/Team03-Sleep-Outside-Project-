@@ -262,12 +262,14 @@ button {
 
 /* Start cart list card styles */
 .cart-card {
+  position: relative;
   display: grid;
   grid-template-columns: auto auto auto;
-  border: 2px solid black;
+  border: 1px solid black;
   display: grid;
   grid-template-columns: 2;
   align-items: center;
+  margin: 5px;
 
  
 }
@@ -331,8 +333,10 @@ button {
 }
 
 .remove {
-  
-  background-color: black;
+  position: absolute;
+  top: 2%;
+  right: .75%; 
+  background-color: var(--tertiary-color);
   color: white;
   font-size: 1rem;
   text-align: center;
