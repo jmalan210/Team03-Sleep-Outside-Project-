@@ -1,8 +1,8 @@
-import { renderListWithTemplate } from "./utils.mjs";
+import { loadHeaderFooter, renderListWithTemplate } from "./utils.mjs";
 
 function productCardTemplate(product) {
     const title = document.querySelector("h2");
-    title.textContent = "Top Products: " + (product.Category.toUpperCase());
+    title.innerHTML = `Top Products: <span class="title">${product.Category}</span>`;
     return `
     <li class="product-card">
         <a href="../product_pages/?product=${product.Id}">
@@ -27,8 +27,13 @@ export default class ProductList {
     async init() {
         const list = await this.dataSource.getData(this.category);
         this.renderList(list);
-        const formatCategory = this.category.replace(/-/g, " ")
-        document.querySelector(".title").textContent = formatCategory;
+        await loadHeaderFooter();
+        const titleDash = document.querySelector(".title")
+        if (titleDash) {
+            titleDash.textContent = this.category.replace(/-/g, " ");
+        }
+       
+        
             }
 
     renderList(list) {
