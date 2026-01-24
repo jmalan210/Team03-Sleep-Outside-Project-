@@ -18,16 +18,26 @@ export default class productDetails{
     addProductToCart() {
         const cartItems = getLocalStorage("so-cart") || []; // get cart array of items from local storage if null set to empty array
         // console.log("before push:", getLocalStorage("so-cart"));
-        cartItems.push(this.product);
+        const existingItem = cartItems.find((item) => item.Id === this.product.Id)
+        if (existingItem) {
+            existingItem.quantity += 1;
+        } else {
+                cartItems.push({
+                    Id: this.product.Id,
+                    NameWithoutBrand: this.product.NameWithoutBrand,
+                    FinalPrice: this.product.FinalPrice,
+                    Image: this.product.Images.PrimaryMedium,
+                    Color: this.product.Colors[0].ColorName,
+                    quantity: 1
+        });
+    }
         setLocalStorage("so-cart", cartItems);
         // console.log("after push:", getLocalStorage("so-cart"));
         // console.log("Counter updated to:", getCartCount());
         document.getElementById("counter").innerText = getCartCount();
 
         console.log("cartItems:", cartItems);
-        
-
-        
+                
     }
     renderProductDetails() {
         productDetailsTemplate(this.product);

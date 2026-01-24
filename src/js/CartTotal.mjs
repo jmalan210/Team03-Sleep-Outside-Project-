@@ -9,7 +9,7 @@ function GetCartTotal() {
     let total = 0.0;
 
     cartItems.forEach(item => {
-        total += parseFloat(item.FinalPrice);
+        total += parseFloat(item.FinalPrice * item.quantity);
     });
 
     return total;
