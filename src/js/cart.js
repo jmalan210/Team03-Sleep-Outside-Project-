@@ -11,7 +11,7 @@ function renderCartContents() {
 
 function cartItemTemplate(item) {
 
-  const image = item.Image;
+  const image = item.Image.PrimarySmall;
   const name = item.NameWithoutBrand;
   const color = item.Colors?.[0]?.ColorName;
   const price = item.FinalPrice;
