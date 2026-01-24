@@ -13,12 +13,12 @@ function cartItemTemplate(item) {
   const newItem = `<li class="cart-card divider">
   <a href="#" class="cart-card__image">
     <img
-      src="${item.Images.PrimaryExtraLarge}"
+      src="${item.Images.PrimarySmall}"
       alt="${item.NameWithoutBrand}"
     />
   </a>
   <a href="#">
-    <h2 class="card__name">${item.Name}</h2>
+    <h2 class="card__name">${item.NameWithoutBrand}</h2>
   </a>
   <p class="cart-card__color">${item.Colors[0].ColorName}</p>
   <p class="cart-card__quantity">qty: 1</p>
