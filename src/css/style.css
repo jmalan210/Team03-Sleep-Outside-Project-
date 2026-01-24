@@ -136,6 +136,11 @@ button {
   fill: gray;
 }
 
+.cart-total {
+  display: flex;
+  font-size: 1.5em;
+  justify-content: right;
+}
 /* End cart icon styles */
 
 .mission {
