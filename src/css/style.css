@@ -112,6 +112,7 @@ button {
 
 .divider {
   border-bottom: 2px solid var(--primary-color);
+  /* border-style: double; */
 }
 
 .divider h2 {
@@ -195,6 +196,18 @@ button {
   margin-top: 2rem;
   padding: 1rem;
   display: block;
+  /* border-style: double; */
+}
+
+.products h2{
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.products div{
+  display: flex;
+  /* border-style: double; */
+  justify-content: space-evenly;
 }
 
 #cart-products{
@@ -257,7 +270,17 @@ button {
 }
 
 .product-detail img {
-  width: 100%;
+  
+  max-width: 100%;
+  height: auto;
+  /* border-style: double; */
+  /* object-fit: contain; */
+}
+
+.product-detail div{
+  /* border-style: dashed; */
+  display: flex;
+  justify-content: space-around;
 }
 
 /* Start cart list card styles */
