@@ -9,7 +9,7 @@ function cartCardTemplate(product) {
         <li class="cart-card divider" data-id=${product.Id}>
             <a href="/product_pages/?product=${product.Id}" class="cart-card__image">
               <img
-                src="${product.Images?.PrimaryMedium ?? "images/placeholder.png"}"
+                src="${product.Images.PrimarySmall}"
                 alt="${product.Name}"
               />
             </a>
