@@ -58,8 +58,6 @@ function productDetailsTemplate(product) {
         const productImage = document.getElementById('productImage'); 
             
         if (windowWidth < 600){
-            productImage.src = product.Images.PrimarySmall; 
-        }else if (windowWidth < 800){
             productImage.src = product.Images.PrimaryMedium;
         }else if (windowWidth < 1200) {
             productImage.src = product.Images.PrimaryLarge;

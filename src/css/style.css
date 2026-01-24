@@ -248,9 +248,17 @@ button {
 }
 
 .product-detail img {
+  
   max-width: 100%;
   height: auto;
+  /* border-style: double; */
   /* object-fit: contain; */
+}
+
+.product-detail div{
+  /* border-style: dashed; */
+  display: flex;
+  justify-content: space-around;
 }
 
 /* Start cart list card styles */
