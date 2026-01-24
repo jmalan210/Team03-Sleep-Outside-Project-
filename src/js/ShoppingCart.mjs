@@ -17,11 +17,11 @@ function cartCardTemplate(product) {
               <h2 class="card__name">${product.Name}</h2>
             </a>
             <p class="cart-card__color">${product.Colors[0].ColorName}</p>
-            <div class = "cart-card-quantity">
+            <section class = "cart-card__quantity">
                 <button class="add">+</button>
                 <span class= "quantity"> ${product.quantity ?? 1}</span>
                 <button class = "subtract">-</button>
-                </div>
+                </section>
             <p class="cart-card__price">$${((product.FinalPrice) * (product.quantity ?? 1)).toFixed(2)}</p>
             <button class="remove">Remove</button>
         </li>
