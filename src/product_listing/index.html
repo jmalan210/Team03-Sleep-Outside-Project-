@@ -17,14 +17,12 @@
   <main class="divider">
     <section class="products">
       <h2>Top Products: <span class="title highlight"></span></h2>
-      <div class="filterMenu">
-        <button class="filterBtn" id="openFilterBtn" >Filter Results <span id="arrow">⮝</span></button>
-        <div class="filterMenu-content hidden">
-          <button class="filterBtn" id="filter-brandNameBtn-AZ">Brand Name: A-Z</button>
-          <button class="filterBtn" id="filter-brandNameBtn-ZA">Brand Name: Z-A</button>
-          <button class="filterBtn" id="filter-priceBtn-LH">Price: Lowest-Highest</button>
-          <button class="filterBtn" id="filter-priceBtn-HL">Price: Highest-Lowest</button>
-        </div>
+      <span id="filterResult">Filter Results:</span>
+      <div id="filterMenu">
+        <button class="filterBtn" id="filter-brandNameBtn-AZ">Brand Name: A-Z</button>
+        <button class="filterBtn" id="filter-brandNameBtn-ZA">Brand Name: Z-A</button>
+        <button class="filterBtn" id="filter-priceBtn-LH">Price: Lowest-Highest</button>
+        <button class="filterBtn" id="filter-priceBtn-HL">Price: Highest-Lowest</button>
       </div>
       <div class="product-list"></div>
     </section>

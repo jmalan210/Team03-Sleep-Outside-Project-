@@ -199,12 +199,12 @@ button {
   /* border-style: double; */
 }
 
-.products h2{
+.products h2 {
   margin-bottom: 2rem;
   text-align: center;
 }
 
-.products div{
+.products div {
   display: flex;
   /* border-style: double; */
   justify-content: space-evenly;
@@ -270,14 +270,14 @@ button {
 }
 
 .product-detail img {
-  
+
   max-width: 100%;
   height: auto;
   /* border-style: double; */
   /* object-fit: contain; */
 }
 
-.product-detail div{
+.product-detail div {
   /* border-style: dashed; */
   display: flex;
   justify-content: space-around;
@@ -294,7 +294,7 @@ button {
   align-items: center;
   margin: 5px;
 
- 
+
 }
 
 .cart-card__image {
@@ -320,7 +320,7 @@ button {
   flex-direction: row-reverse;
   padding-right: 5px;
   grid-row: 2;
-  grid-column: 3; 
+  grid-column: 3;
 }
 
 .quantity {
@@ -334,21 +334,35 @@ button {
   text-align: right;
 }
 
-.cart-total, .cart-quant {
+.cart-total,
+.cart-quant {
   padding-left: 0;
-  
+
   font-weight: bold;
   text-align: left;
 }
 
-.hide {
+.filter-hide {
   display: none;
 }
 
 /*Filter Products Menu Buttons*/
-.filterMenu {
+#filterMenu {
+  display: block;
   padding: 0.5em;
   align-items: start;
+  justify-content: space-evenly;
+  column-gap: 2em;
+}
+
+#filterMenu button {
+  margin: 0.5em 0;
+}
+
+#filterResult{
+  margin: 0;
+  font-size: var(--large-font);
+  font-weight: 700;
 }
 
 .filterBtn{
@@ -357,28 +371,11 @@ button {
   background-color: var(--tertiary-color);
 }
 
-#openFilterBtn{
-  width: auto;
-}
-
 .filterBtn:hover {
   background-color: var(--secondary-color);
 }
 
-.filterMenu-content {
-  display: inline-block;
-  padding: 0 0 0.5em 0;
-  flex-direction: row;
-  justify-content: space-evenly;
-  column-gap: 0.5em;
-  width: 100%;
-}
-
-.filterMenu-content button{
-    margin: 0.3em 0;
-}
-
-.clicked{
+.clicked {
   background-color: var(--secondary-color);
 }
 
@@ -440,14 +437,10 @@ button {
     display: grid;
   }
 
-  .filterMenu-content {
+  #filterMenu {
     display: flex;
-
   }
 
-  .hidden{
-    display: none;
-  }
 }
 
 footer {
