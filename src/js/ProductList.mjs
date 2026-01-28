@@ -1,4 +1,4 @@
-import { loadHeaderFooter, renderListWithTemplate } from "./utils.mjs";
+import { loadHeaderFooter, qs, renderListWithTemplate } from "./utils.mjs";
 
 function productCardTemplate(product) {
     const title = document.querySelector("h2");
@@ -33,7 +33,7 @@ export default class ProductList {
     renderList(list) {
         renderListWithTemplate(productCardTemplate, this.listElement, list);
     }
-    
+
     sortList(sortRule, order = "asc") {
         this.listElement.innerHTML = ""; //clear HTML contents
         const sortedProducts = this.products.map(item => item); //copy the array
@@ -79,5 +79,18 @@ export default class ProductList {
         this.renderList(sortedProducts);
     }
     
+    searchProductList(inputObject) {
+        let filteredProducts = [];
+        inputObject.addEventListener("keypress", (e) => {
+            this.listElement.innerHTML = "";
+            if (e.key === "Enter") {
+                e.preventDefault();
+            }
+            let query = e.target.value.toLowerCase();
+            filteredProducts = this.products.filter(prod => prod.Name.toLowerCase().includes(query));
+            
+            this.renderList(filteredProducts);
+        })
+    }
 }
 

@@ -428,15 +428,15 @@ button {
   align-items: center;
 }
 
-#search-text {
+#search-input {
   padding: 10px;
   font-size: 17px;
 }
 
-#search-btn {
+/* #search-btn {
   margin: 0;
   font-size: 20px;
-}
+} */
 
 
   

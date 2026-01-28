@@ -1,4 +1,4 @@
-import {loadHeaderFooter, getParam} from "./utils.mjs";
+import {loadHeaderFooter, getParam, qs, setClick} from "./utils.mjs";
 import ProductData from "./ProductData.mjs";
 import ProductList from "./ProductList.mjs";
 
@@ -10,6 +10,11 @@ const element = document.querySelector(".product-list");
 const productList = new ProductList(category, dataSource, element);
 
 productList.init();
+
+// Search Functionality
+const searchInput = qs("#search-input");
+setClick("#search-input", productList.searchProductList(searchInput));
+
 
 //Filter Results Functionality
 //Get Buttons:
@@ -48,6 +53,4 @@ filterBtnList.forEach(btn => {
         btn.classList.add("clicked");
     });
 });
-
-
 
