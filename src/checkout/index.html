@@ -29,10 +29,10 @@
         <label>Street Address<input type="text" required></label>
 
         <label>City<input type="text" required></label>
-        <label>State<input type="text" required></label>
+        <label>State<input type="text" pattern="\d2" required></label>
         <label>ZIP Code<input type="number" id="zip" pattern="\d{5}" required></label>
         <label>Credit Card Number<input type="number" required></label>
-        <label>Expiration Date<input type="date" required></label>
+        <label>Expiration Date<input type="text" maxlength="5" autocomplete="cc-exp" placeholder="MM/YY"></label>
         <label>Security Code<input type="number" pattern="\d3" required></label>
         <button id="checkout-btn" type="submit">Checkout</button>
       </form>
