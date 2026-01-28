@@ -22,7 +22,7 @@
     <section class="products">
       <h2>Review & Place your Order</h2>
     </section>
-    <form action="http://wdd330-backend.onrender.com/checkout" method="post" class="checkout-form">
+    <form class="checkout-form" name="checkoutForm">
       <fieldset>
         <legend>Shipping Information</legend>
         <label>First Name<input name="fname" type="text" required></label>
@@ -35,9 +35,9 @@
 
       <fieldset>
         <legend>Payment Information</legend>
-        <label>Credit Card Number<input name="cardNumber" type="text" pattern="[0-9]{13,19}" required></label>
+        <label>Credit Card Number<input name="cardNumber" type="text" pattern="[0-9]{13,19}" required value="1234123412341234"></label>
         <label>Expiration Date<input name="expiration" type="text" maxlength="5" autocomplete="cc-exp" placeholder="MM/YY" required></label>
-        <label>Security Code<input name="code" type="text" pattern="\d{3}" required></label>
+        <label>Security Code<input name="code" type="text" pattern="\d{3}" required value="123"></label>
       </fieldset>
       <button id="checkout-btn" type="submit">Checkout</button>
     </form>

@@ -1,4 +1,8 @@
 import { getLocalStorage } from "./utils.mjs";
+import ExternalServices from "./ExternalServices.mjs";
+
+//External services:
+const externalServices = new ExternalServices();
 
 const zipInput = document.querySelector("#zip");
 
@@ -82,23 +86,53 @@ export default class CheckoutProcess {
     
     }
 
-    packageItems(items) {
-        const cartItems = getLocalStorage("so-cart") || [];
-        const simplifiedCart = cartItems.map(item => {
-            return {
-                id: item.Id,
-                name: item.Name,
-                price: item.FinalPrice,
-                quantity: item.quantity
-            }
-        });
-        return simplifiedCart;
-    }
+    async checkout(){
+        // get the form element data by the form name
+        const formElement = document.forms["checkoutForm"];
+        // convert the form data to a JSON order object using the formDataToJSON function
+        const orderList = formDataToJSON(formElement);
 
-    async checkout(form){
+        // populate the JSON order object with the order Date, orderTotal, tax, shipping, and list of items
+        orderList.orderDate = new Date().toISOString();
+        orderList.orderTotal = this.orderTotal;
+        orderList.tax = this.tax;
+        orderList.shipping = this.shipping;
+        orderList.items = packageItems(this.list);
+        console.log("Order List" + orderList);
 
+        // call the checkout method in the ExternalServices module and send it the JSON order data.
+        try {
+            const response = await externalServices.checkout(oderList);
+            console.log(response);
+        }
+        catch (e) {
+            console.log(e);// shows error message
+        }
     }
 }
 
+function packageItems(items) {
+    const cartItems = getLocalStorage("so-cart") || [];
+    const simplifiedCart = cartItems.map(item => {
+        return {
+            id: item.Id,
+            name: item.Name,
+            price: item.FinalPrice,
+            quantity: item.quantity
+        }
+    });
+    return simplifiedCart;
+}
 
+// takes a form element and returns an object where the key is the "name" of the form input.
+function formDataToJSON(formElement) {
+    const formData = new FormData(formElement),
+        convertedJSON = {};
+
+    formData.forEach(function (value, key) {
+        convertedJSON[key] = value;
+    });
+
+    return convertedJSON;
+}
 
