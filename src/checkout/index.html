@@ -8,16 +8,69 @@
 
     <title>Sleep Outside | Checkout</title>
 
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    
     <script src="../js/checkout.js" type="module"></script>
+    <script src="../js/CheckoutProcess.mjs" type="module"></script>
   </head>
 
   <body>
     <header class="divider" id="dynamic-header"></header>
 
     <main class="divider">
-      <section class="products">
-        <h2>Review & Place your Order</h2>
+      <section class="products">        
+        <div class="checkout-container">
+            <!-- FORM -->
+            <form action="POST">
+              <h1>Review & Place your Order</h1>
+              <h2>Name</h2>
+
+              <label for="firstName">First Name</label>
+              <input type="text" id="firstName" required>
+
+              <label for="lastName">Last Name</label>
+              <input type="text" id="lastName" required>
+
+              <h2>Address</h2>
+
+              <label for="street">Street Address</label>
+              <input type="text" id="street" required>
+
+              <label for="city">City</label>
+              <input type="text" id="city" required>
+
+              <label for="state">State</label>
+              <input type="text" id="state" required>
+
+              <label for="zip">Zip Code</label>
+              <input type="text" id="zip" required>
+
+              <h2>Payment</h2>
+
+              <label for="cardNumber">Credit Card Number</label>
+              <input type="text" id="cardNumber" required>
+
+              <label for="expiration">Expiration Date</label>
+              <input type="month" id="expiration" required>
+
+              <label for="securityCode">Security Code</label>
+              <input type="text" id="securityCode" required>
+            <!-- ORDER SUMMARY -->
+
+             <h2>Order Summary</h2>
+            <dl class="checkout-summary">              
+              <dt>Subtotal</dt>
+              <dd id="subtotal"></dd>
+              <dt>Tax</dt>
+              <dd id="tax"></dd> 
+              <dt>Shipping</dt>
+              <dd id="shipping"></dd> 
+              <dt>Total</dt>
+              <dd id="total"></dd> 
+            </dl>
+            <button type="submit">Checkout</button>
+            </form>
+          </div>
       </section>
     </main>
 

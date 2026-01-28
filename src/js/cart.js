@@ -1,12 +1,22 @@
 import { getLocalStorage, getCartCount, loadHeaderFooter} from "./utils.mjs";
 
-loadHeaderFooter();
+await loadHeaderFooter();
 
 function renderCartContents() {
   const cartItems = getLocalStorage("so-cart") || [];
   const htmlItems = cartItems.map((item) => cartItemTemplate(item));
 
   document.querySelector("#product-list").innerHTML = htmlItems.join("");
+
+  const checkoutBtn = document.getElementById("btn-checkout");
+
+  const cart = JSON.parse(localStorage.getItem("so-cart")) || [];
+
+  
+  if (cart.length > 0) {
+    checkoutBtn.classList.remove("btn-hidden");
+
+  }
   
 }
 

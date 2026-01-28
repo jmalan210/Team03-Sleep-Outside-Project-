@@ -300,6 +300,36 @@ button {
   grid-column: 3;
 }
 
+.btn-hidden {
+  display: none;
+}
+
+.cart-actions {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-top: 0.9em;
+}
+
+#btn-checkout {
+  padding: 0.5em 2em;
+  background-color: var(--secondary-color);
+  color: white;  
+  border: 0;
+  font-size: var(--large-font);
+  cursor: pointer;
+}
+
+#btn-checkout:hover {
+  color: #d9c427;
+}
+
+.checkout-summary {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.5rem 1rem;
+}
+
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
