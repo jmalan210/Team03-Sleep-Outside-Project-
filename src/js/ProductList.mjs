@@ -28,11 +28,12 @@ export default class ProductList {
         this.renderList(this.products);
         const formatCategory = this.category.replace(/-/g, " ")
         document.querySelector(".title").textContent = formatCategory;
-            }
+    }
 
     renderList(list) {
         renderListWithTemplate(productCardTemplate, this.listElement, list);
     }
+    
     sortList(sortRule, order = "asc") {
         this.listElement.innerHTML = ""; //clear HTML contents
         const sortedProducts = this.products.map(item => item); //copy the array
