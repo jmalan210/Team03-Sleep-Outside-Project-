@@ -30,13 +30,14 @@
 
         <label>City<input type="text" required></label>
         <label>State<input type="text" required></label>
-        <label>ZIP Code<input type="number" required></label>
+        <label>ZIP Code<input type="number" id="zip" pattern="\d{5}" required></label>
         <label>Credit Card Number<input type="number" required></label>
         <label>Expiration Date<input type="date" required></label>
         <label>Security Code<input type="number" required></label>
         <button id="checkout-btn" type="submit">Checkout</button>
       </form>
-      <div id="checkoutData"><p id="subtotal"></p>
+      <div id="checkoutData">
+      <p id="subtotal">test</p>
       <p id="tax"></p>
       <p id="shipping"></p>
       <p id="total"></p>
