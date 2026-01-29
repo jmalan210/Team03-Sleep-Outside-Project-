@@ -416,7 +416,22 @@ button {
    
 }
 
+#checkout-form{
+  display: inline;
+}
 
+#checkout-form fieldset{
+  padding: 0.5em;
+  margin: 1em;
+}
+
+
+#checkout-form input {
+  display: block;
+  height: 45px;
+  width: 70%;
+  margin-bottom: 1em;
+}
   
 @media screen and (min-width: 500px) {
   body {
