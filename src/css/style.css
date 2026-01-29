@@ -419,17 +419,17 @@ button {
    
 }
 
-.checkout-form{
+#checkout-form{
   display: inline;
 }
 
-.checkout-form fieldset{
+#checkout-form fieldset{
   padding: 0.5em;
   margin: 1em;
 }
 
 
-.checkout-form input {
+#checkout-form input {
   display: block;
   height: 45px;
   width: 70%;

@@ -26,6 +26,7 @@ export default class CheckoutProcess {
         const { subtotal, totalItems } = this.calcSubtotal();
         this.calcTotal(subtotal, totalItems);
         this.displayTotal();
+        // console.log("checkout list:", this.list);
         
     }
 
@@ -46,11 +47,11 @@ export default class CheckoutProcess {
         
         this.tax = subtotal * .06;
         this.shipping = totalItems >0 ?10 + (2 * (totalItems - 1)):0; //prevents negative shipping totals if no cart items
-        this.total = subtotal + this.tax + this.shipping;
+        this.orderTotal = subtotal + this.tax + this.shipping;
 
         document.getElementById("tax").innerHTML = `Tax: $${this.tax.toFixed(2)}`;
         document.getElementById("shipping").innerHTML = `Shipping: $${this.shipping.toFixed(2)}`;
-        document.getElementById("total").innerHTML = `Total: $${this.total.toFixed(2)}`;
+        document.getElementById("total").innerHTML = `Total: $${this.orderTotal.toFixed(2)}`;
         return total;
         
 
@@ -111,7 +112,7 @@ export default class CheckoutProcess {
 }
 
 function packageItems(items) {
-    const cartItems = getLocalStorage("so-cart") || [];
+    const cartItems = items;
     const simplifiedCart = cartItems.map(item => {
         return {
             id: item.Id,

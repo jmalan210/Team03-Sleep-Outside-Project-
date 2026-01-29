@@ -11,6 +11,7 @@ function convertToJson(res) {
 
 export default class ExternalServices{
   constructor() {
+    this.baseURL = baseURL;
     
   }
   async getData(category) { 
@@ -25,6 +26,18 @@ export default class ExternalServices{
     const response = await fetch(`${baseURL}product/${id}`);
     const data = await convertToJson(response);
     return data.Result; 
+  }
+
+  async checkout(orderData) {
+    const response = await fetch(`${baseURL}checkout`, {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json"
+      },
+      body: JSON.stringify(orderData)
+    });
+    const data = await convertToJson(response);
+    return data;
   }
 }//end of class definition
 
