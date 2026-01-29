@@ -121,8 +121,9 @@ export function updateCartFooter() {
 export function alertMessage(message, scroll=true) {
   const main = document.querySelector("main");
   const alert = document.createElement("div");
+  alert.classList.add("alert-div");
   alert.classList.add("alert");
-  alert.innerHTML = `<p>${message}</p><span>X</span>`;
+  alert.innerHTML = `<p>${message}</p><span class="closer">X</span>`;
 
   alert.addEventListener("click", function(e) {
     if(e.target.tagName == "SPAN") {

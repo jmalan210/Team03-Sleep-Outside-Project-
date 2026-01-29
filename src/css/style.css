@@ -478,3 +478,22 @@ footer {
   font-size: var(--small-font);
   padding: 1em;
 }
+
+/*Form Alerts*/
+.alert-div{
+  background-color: var(--primary-color);
+  display: flex;
+  justify-content: flex-end ;
+  width: 100%;
+  font-size: 1.3rem;
+   font-weight: bold;
+}
+
+.closer {
+  
+  color: black;
+  font-size: 1.3rem;
+ 
+  padding: 5px;
+  border-radius: 50%;
+}

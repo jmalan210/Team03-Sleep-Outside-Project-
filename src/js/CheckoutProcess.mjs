@@ -114,10 +114,12 @@ export default class CheckoutProcess {
             console.log(e);// shows error message
             
             removeAllAlerts();
-            if (e.data && Array.isArray(e.data.errors)) {
-                e.data.errors.forEach(msg => alertMessage(msg));
-            } else if (e.data && typeof e.data === "object") {
-                Object.values(e.data).forEach(msg => alertMessage(msg));
+            // if (e.data && Array.isArray(e.data.errors)) {
+            //     e.data.errors.forEach(msg => alertMessage(msg));
+            if (e.data && typeof e.data === "object") {
+                Object.values(e.data).forEach(msg => {
+                    if (msg) alertMessage(msg);
+                });
             }
             else if (typeof e.message === "string") {
                 alertMessage(e.message);
