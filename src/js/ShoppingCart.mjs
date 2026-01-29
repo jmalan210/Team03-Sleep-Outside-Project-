@@ -93,6 +93,7 @@ export default class CartList {
         
         ); 
         this.totalElement.textContent = `$${total.toFixed(2)}`;
+        return total
     }
 
 }
