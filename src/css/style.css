@@ -416,6 +416,22 @@ button {
    
 }
 
+/* Search bar */
+#search-div {
+  margin: auto;
+  justify-self: center;
+}
+
+#search-bar {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+#search-input {
+  padding: 10px;
+  font-size: 17px;
+}
 #checkout-form{
   display: inline;
 }
