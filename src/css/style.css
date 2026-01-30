@@ -136,8 +136,7 @@ button {
 .cart.animate {
   animation-name: grow-shrink;
   animation-duration: 1s;
-  animation-iteration-count: infinite;
-}
+  }
 
 @keyframes grow-shrink {
   0%, 
