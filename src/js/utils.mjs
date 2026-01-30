@@ -129,7 +129,7 @@ export function alertMessage(message, scroll = true) {
 
   const closeButton = document.createElement("span");
   closeButton.innerHTML = "&#10005";
-  messageBox.appendChild(closeButton);
+  alertBox.appendChild(closeButton);
 
   //Alert Box Event Listener:
   alertBox.addEventListener("click", function (e) {
