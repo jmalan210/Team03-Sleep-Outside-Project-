@@ -359,13 +359,13 @@ button {
   margin: 0.5em 0;
 }
 
-#filterResult{
+#filterResult {
   margin: 0;
   font-size: var(--large-font);
   font-weight: 700;
 }
 
-.filterBtn{
+.filterBtn {
   border-radius: 0.6em;
   width: 100%;
   background-color: var(--tertiary-color);
@@ -384,9 +384,10 @@ button {
   display: none;
 }
 
-.add, .subtract {
+.add,
+.subtract {
   display: inline;
-  background-color:var(--primary-color);
+  background-color: var(--primary-color);
   width: 25px;
   height: 25px;
   text-align: center;
@@ -398,7 +399,7 @@ button {
 .remove {
   position: absolute;
   top: 2%;
-  right: .75%; 
+  right: .75%;
   background-color: var(--tertiary-color);
   color: white;
   font-size: 1rem;
@@ -413,7 +414,7 @@ button {
   flex-direction: column;
   justify-content: flex-start;
   height: 200px;
-   
+
 }
 
 /* Search bar */
@@ -432,11 +433,12 @@ button {
   padding: 10px;
   font-size: 17px;
 }
-#checkout-form{
+
+#checkout-form {
   display: inline;
 }
 
-#checkout-form fieldset{
+#checkout-form fieldset {
   padding: 0.5em;
   margin: 1em;
 }
@@ -450,7 +452,7 @@ button {
 }
 
 /*Alert Box*/
-.alert{
+.alert {
   padding: 0.2em;
   margin: 0.5em;
   background-color: rgba(255, 166, 0, 0.753);
@@ -461,13 +463,24 @@ button {
   font-weight: 700;
 }
 
-.alert span{
+.alert span {
   text-align: right;
   align-content: baseline;
   padding-right: 0.5em;
   font-size: 1.5em;
+  cursor: pointer;
 }
-  
+
+/*Checkout Form*/
+#main-checkout {
+  display: block;
+  grid-template-columns: 2fr 1fr;
+}
+
+#main-checkout section {
+  grid-column: 1/3;
+}
+
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
@@ -491,6 +504,9 @@ button {
     display: flex;
   }
 
+  #main-checkout {
+    display: grid;
+  }
 }
 
 footer {
