@@ -1,4 +1,4 @@
-import { getLocalStorage } from "./utils.mjs";
+import { getLocalStorage, setLocalStorage } from "./utils.mjs";
 import ExternalServices from "./ExternalServices.mjs";
 
 //External services:
@@ -103,6 +103,8 @@ export default class CheckoutProcess {
         try {
             const response = await externalServices.checkout(orderList);
             console.log(response);
+            setLocalStorage("so-cart", []); // set cart to empty
+            window.location.assign("/checkout/success.html");
         }
         catch (e) {
             console.log(e);// shows error message
