@@ -118,6 +118,31 @@ export function updateCartFooter() {
     
 }
 
+export function alertMessage(message, scroll=true){
+  
+  const alert = document.createElement('div');
+  
+  //Access to the error message
+  for(let key in message.message){  
+    alert.innerHTML = `<span>${message.message[key]}</span>
+                        <p class="close">x</p>`;  
+  }
+  //Creates a class= alert
+  alert.classList.add('alert');
+ //When click on x, error message disappears
+  alert.querySelector('.close').addEventListener('click', ()=>{
+    alert.remove();
+  }); 
+
+  //Adds the alert at the top of teh page
+  const main = document.querySelector('main');
+  main.prepend(alert);
+  if(scroll)
+    window.scrollTo(0,0);
+
+  }
+
+
 
 
 

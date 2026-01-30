@@ -22,27 +22,27 @@
     <section class="products">
       <h2>Review & Place your Order</h2>
     </section>
-    <form id="checkout-form" name="checkoutForm">
+    <form id="checkout-form" name="checkoutForm" class="checkout-form">
       <fieldset>
         <legend>Shipping Information</legend>
-        <label>First Name<input name="fname" type="text" required></label>
-        <label>Last Name<input name="lname" type="text" required></label>
-        <label>Street Address<input name="street" type="text" required></label>
-        <label>City<input name="city" type="text" required></label>
-        <label>State<input name="state" type="text" pattern="[A-Z]{2}" required></label>
-        <label>ZIP Code<input name="zip" type="text" id="zip" pattern="\d{5}" required></label>
+        <label>First Name<input name="fname" type="text" required value="Horacio"></label>
+        <label>Last Name<input name="lname" type="text" required value="Velarde"></label>
+        <label>Street Address<input name="street" type="text" value="123 Main Street"></label>
+        <label>City<input name="city" type="text" required value="Tuxpan"></label>
+        <label>State<input name="state" type="text" pattern="[A-Z]{2}" value="ID"></label>
+        <label>ZIP Code<input name="zip" type="text" id="zip" pattern="\d{5}" required placeholder="12345"></label>
       </fieldset>
 
       <fieldset>
         <legend>Payment Information</legend>
         <label>Credit Card Number<input name="cardNumber" type="text" pattern="[0-9]{13,19}" required placeholder="1234123412341234"></label>
-        <label>Expiration Date<input name="expiration" type="text" maxlength="5" autocomplete="cc-exp" placeholder="MM/YY" required></label>
-        <label>Security Code<input name="code" type="text" pattern="\d{3}" required placeholder="123"></label>
+        <label>Expiration Date<input name="expiration" type="text" maxlength="5" autocomplete="cc-exp" value="12/26" required></label>
+        <label>Security Code<input name="code" type="text" pattern="\d{3}" required value="123"></label>
       </fieldset>
       <button id="checkout-btn" type="submit">Checkout</button>
     </form>
     <div id="checkoutData">
-      <p id="subtotal">test</p>
+      <p id="subtotal"></p>
       <p id="tax"></p>
       <p id="shipping"></p>
       <p id="total"></p>
