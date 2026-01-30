@@ -448,6 +448,25 @@ button {
   width: 70%;
   margin-bottom: 1em;
 }
+
+/*Alert Box*/
+.alert{
+  padding: 0.2em;
+  margin: 0.5em;
+  background-color: rgba(255, 166, 0, 0.753);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  border: #8a470c93 5px solid;
+  border-radius: 0.6em;
+  font-weight: 700;
+}
+
+.alert span{
+  text-align: right;
+  align-content: baseline;
+  padding-right: 0.5em;
+  font-size: 1.5em;
+}
   
 @media screen and (min-width: 500px) {
   body {
