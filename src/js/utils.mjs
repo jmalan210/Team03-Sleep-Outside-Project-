@@ -151,7 +151,7 @@ export function addedToCartMsg(item) {
 
   const productName = item.Name || item.NameWithoutBrand || "Product";
   addedMsg.innerHTML = `${productName} added to cart!`;
-  productDetail.prepend(addedMsg);
+  productDetail.append(addedMsg);
 
   setTimeout(() => {
     addedMsg.remove()

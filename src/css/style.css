@@ -283,6 +283,13 @@ button {
   justify-content: space-around;
 }
 
+.cartAddMsg {
+  background-color: var(--primary-color);
+  padding: 5px;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
 /* Start cart list card styles */
 .cart-card {
   position: relative;
