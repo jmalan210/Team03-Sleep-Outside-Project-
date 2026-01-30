@@ -8,7 +8,7 @@ export function qs(selector, parent = document) {
 // retrieve data from localstorage
 export function getLocalStorage(key) {
   return JSON.parse(localStorage.getItem(key));
-  
+
 }
 // save data to local storage
 export function setLocalStorage(key, data) {
@@ -24,11 +24,11 @@ export function setClick(selector, callback) {
 }
 
 export function getParam(param) {
-  
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    return urlParams.get(param);
-    
+
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  return urlParams.get(param);
+
 }
 
 export function renderListWithTemplate(template, parentElement, list, position = "afterbegin", clear = false) {
@@ -37,12 +37,12 @@ export function renderListWithTemplate(template, parentElement, list, position =
   if (clear) {
     parentElement.innerHTML = "";
   }
-    parentElement.insertAdjacentHTML(position, htmlStrings.join(""));
+  parentElement.insertAdjacentHTML(position, htmlStrings.join(""));
 }
 export function getCartCount() {
   const cart = JSON.parse(localStorage.getItem("so-cart")) || [];
   return cart.reduce(
-    (total, item) => total + (item.quantity ?? 1), 0  );
+    (total, item) => total + (item.quantity ?? 1), 0);
 }
 
 export function renderWithTemplate(template, parentElement, data, callback) {
@@ -57,7 +57,7 @@ export async function loadTemplate(path) {
   return await response.text();
 }
 
-export async function loadHeaderFooter(){
+export async function loadHeaderFooter() {
   const templateHeader = await loadTemplate("../partials/header.html");
   const templateFooter = await loadTemplate("../partials/footer.html");
 
@@ -72,50 +72,50 @@ export async function loadHeaderFooter(){
 
 //cart counter functioning.  Gets called as a callback function when renderWithTemplate is called for the dynamic header//
 export function initCartCounter() {
-   
-    const cartIcon = document.querySelector(".cart");
-    if (!cartIcon) return;
-    
-    let counter = document.getElementById("counter");
- 
-    if (!counter) {
+
+  const cartIcon = document.querySelector(".cart");
+  if (!cartIcon) return;
+
+  let counter = document.getElementById("counter");
+
+  if (!counter) {
     counter = document.createElement("div");
     counter.id = "counter";
-        cartIcon.prepend(counter);
-    }
-    
-    const count = getCartCount();
+    cartIcon.prepend(counter);
+  }
 
-    if (count > 0) {
+  const count = getCartCount();
+
+  if (count > 0) {
     counter.textContent = count;
     counter.removeAttribute("data-hidden");
-}
-    else {
+  }
+  else {
     counter.setAttribute("data-hidden", "true");
- }
+  }
 };
 
 export function updateCartFooter() {
-    const divTotal = document.querySelector(".cart-footer");
-    const displayTotal = document.querySelector(".cart-total");
-    const dispQuantity = document.querySelector(".cart-quant");
+  const divTotal = document.querySelector(".cart-footer");
+  const displayTotal = document.querySelector(".cart-total");
+  const dispQuantity = document.querySelector(".cart-quant");
 
-    const cartItems = getLocalStorage("so-cart") || [];
+  const cartItems = getLocalStorage("so-cart") || [];
 
-    if (getCartCount() === 0) {
-      divTotal.classList.add("hide");
-      displayTotal.textContent = "";
-      dispQuantity.textContent = "";
-    } else {
-        divTotal.classList.remove("hide");
+  if (getCartCount() === 0) {
+    divTotal.classList.add("hide");
+    displayTotal.textContent = "";
+    dispQuantity.textContent = "";
+  } else {
+    divTotal.classList.remove("hide");
 
-        
-        const subTotal = cartItems.reduce((total, item) => total + parseFloat(item.FinalPrice) * (item.quantity ?? 1), 0);
 
-         displayTotal.textContent = `Total Price: $${subTotal.toFixed(2)}`;
-         dispQuantity.textContent = `Total Items: ${getCartCount()}`;
-}
-    
+    const subTotal = cartItems.reduce((total, item) => total + parseFloat(item.FinalPrice) * (item.quantity ?? 1), 0);
+
+    displayTotal.textContent = `Total Price: $${subTotal.toFixed(2)}`;
+    dispQuantity.textContent = `Total Items: ${getCartCount()}`;
+  }
+
 }
 
 
