@@ -142,7 +142,21 @@ export function removeAllAlerts() {
   alerts.forEach((alert) => document.querySelector("main").removeChild(alert));
 }
 
+export function addedToCartMsg(item) {
+  const productDetail = document.querySelector(".product-detail");
+  if (!productDetail) return;
 
+  const addedMsg = document.createElement("div");
+  addedMsg.classList.add("cartAddMsg");
+
+  const productName = item.Name || item.NameWithoutBrand || "Product";
+  addedMsg.innerHTML = `${productName} added to cart!`;
+  productDetail.prepend(addedMsg);
+
+  setTimeout(() => {
+    addedMsg.remove()
+  }, 2000);
+}
 
 
 
