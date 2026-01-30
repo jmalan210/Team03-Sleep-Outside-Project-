@@ -416,6 +416,16 @@ button {
    
 }
 
+#checkout {
+  
+  & a {text-decoration: none;
+      color: white;}
+  
+    &:hover {
+      background-color: var(--tertiary-color);
+       }
+}
+
 /* Search bar */
 #search-div {
   margin: auto;
