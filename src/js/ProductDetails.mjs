@@ -1,4 +1,4 @@
-import { getCartCount, getLocalStorage, setLocalStorage, initCartCounter } from "./utils.mjs";
+import { getCartCount, getLocalStorage, setLocalStorage, initCartCounter, animateCart } from "./utils.mjs";
 
 export default class productDetails{
     constructor(productId, dataSource) {
@@ -22,20 +22,15 @@ export default class productDetails{
             existsInCart.quantity += 1;
         } else {
             cartItems.push({...this.product, quantity: 1});
-            
         }
-
-       
-        
         setLocalStorage("so-cart", cartItems);
-         initCartCounter();
+        animateCart();
+        initCartCounter();
         
     }
     renderProductDetails() {
         productDetailsTemplate(this.product);
     }
-
-    
 
 }
 

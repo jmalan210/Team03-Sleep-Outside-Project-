@@ -118,6 +118,16 @@ export function updateCartFooter() {
     
 }
 
+export function animateCart() {
+  const cartIcon = document.querySelector(".cart");
+  cartIcon.classList.add('animate');
+  setTimeout(() => {
+    cartIcon.classList.remove("animate");
+  }, 1000)
+  
+
+}
+
 
 
 

@@ -133,9 +133,26 @@ button {
   text-align: center;
 }
 
+.cart.animate {
+  animation-name: grow-shrink;
+  animation-duration: 1s;
+  }
+
+@keyframes grow-shrink {
+  0%, 
+  75% {
+    scale: 100%;
+  }
+
+  50% {
+    scale: 200%;
+  }
+}
+
 .cart svg {
   width: 25px;
   margin: 10px;
+  
 }
 
 .cart:hover svg {
