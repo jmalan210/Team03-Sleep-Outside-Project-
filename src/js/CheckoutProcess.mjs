@@ -99,10 +99,14 @@ export default class CheckoutProcess {
         orderList.shipping = this.shipping;
         orderList.items = packageItems(this.list);
 
+        console.log(orderList);
+
         // call the checkout method in the ExternalServices module and send it the JSON order data.
         try {
             const response = await externalServices.checkout(orderList);
             console.log(response);
+            localStorage.removeItem(this.key);
+            window.location.href = "../index.html?checkout=success";
         }
         catch (e) {
             console.log(e);// shows error message

@@ -117,3 +117,18 @@ export function updateCartFooter() {
 }
     
 }
+
+export function isCardExpired(value) {
+  const [month, year] = value.split("/");
+  const expMonth = Number(month);
+  const expYear = 2000 + Number(year);
+
+  const now = new Date();
+  const currentMonth = now.getMonth() + 1;
+  const currentYear = now.getFullYear();
+
+  return (
+    expYear < currentYear ||
+    (expYear === currentYear && expMonth < currentMonth)
+  );
+}
