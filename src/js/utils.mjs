@@ -118,6 +118,36 @@ export function updateCartFooter() {
 
 }
 
+export function alertMessage(message, scroll = true) {
+  const alertBox = document.createElement('div');
+  alertBox.classList.add('alert');
+
+  //Alert Box contents:
+  const messageBox = document.createElement("p");
+  messageBox.textContent = message;
+  alertBox.appendChild(messageBox);
+
+  const closeButton = document.createElement("span");
+  closeButton.innerHTML = "&#10005";
+  messageBox.appendChild(closeButton);
+
+  //Alert Box Event Listener:
+  alertBox.addEventListener("click", function (e) {
+    if (e.target.tagName == "SPAN") {
+      main.removeChild(this);
+    }
+  });
+
+  const main = document.querySelector('main');
+
+  //add alert box to main
+  main.prepend(alertBox);
+
+  if (scroll) {
+    window.scrollTo(0, 0);
+  }
+}
+
 
 
 
