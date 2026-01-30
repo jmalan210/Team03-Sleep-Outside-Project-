@@ -103,12 +103,9 @@ export default class CheckoutProcess {
         try {
             const response = await externalServices.checkout(orderList);
             console.log(response);
-            if (!response.success) {
-                removeAllAlerts();
-                response.errors.forEach(err => alertMessage(err));
-                return
-            }
+            
             window.location.href = "success.html"
+            localStorage.clear("so-cart");
         }
         catch (e) {
             console.log(e);// shows error message
