@@ -1,5 +1,6 @@
 import { loadHeaderFooter, qs, renderListWithTemplate } from "./utils.mjs";
 
+
 function productCardTemplate(product) {
     const title = document.querySelector("h2");
     title.innerHTML = `Top Products: <span class="title">${product.Category}</span>`;
@@ -9,10 +10,11 @@ function productCardTemplate(product) {
             <img src="${product.Images.PrimaryMedium}" alt="Image of ${product.Name}">
             <h2 class="card_brand>${product.Brand.Name}</h2>
             <h3 class= "card_name>${product.Name}</h3>
-            <p class="product-card_price">$${product.FinalPrice}</p>
-                
+            <p class="product-card_price">$${product.FinalPrice}</p>       
         </a>
+         <button class="lookup" data-id="${product.Id}">Quick Lookup</button>      
     </li>
+    
     `;
 }
 
@@ -26,6 +28,8 @@ export default class ProductList {
     async init() {
         this.products = await this.dataSource.getData(this.category);
         this.renderList(this.products);
+        this.addLookupHandler();
+
         const formatCategory = this.category.replace(/-/g, " ")
         document.querySelector(".title").textContent = formatCategory;
     }
@@ -92,5 +96,52 @@ export default class ProductList {
             this.renderList(filteredProducts);
         })
     }
+
+    /******Quick Lookup Handler****** */
+    addLookupHandler(){
+        this.listElement.addEventListener("click", (e) => {
+           const button = e.target.closest(".lookup");
+           //checks that element exists
+           if(!button) return; //if there is no element, stops
+           
+           const id = button.dataset.id;
+           const product = this.products.find(p => p.Id == id);
+
+           if(!product) return; // if the product is not founds, there is an error
+
+           this.showModal(product);
+        });
+    }
+
+    showModal(product){
+        const modal = document.getElementById("modal");
+        const modalMessage = document.getElementById("modal-message");
+        const closeModal = document.getElementById('close-modal');
+
+        modalMessage.innerHTML = `
+            <h3>Product:</h3>
+            <p>${product.NameWithoutBrand}</p>
+            <p><strong>Brand:</strong>${product.Brand.Name}</p>
+            <p><strong>Color:</strong>${product.Colors[0].ColorName}</p>
+            <p><strong>Availability:</strong>${product.DescriptionHtmlSimple}</p> 
+        `;
+
+        modal.classList.remove("hidden");
+
+         //Hide Modal
+        closeModal.addEventListener('click',() => {
+        modal.classList.add('hidden');
+    });
+    }
 }
+
+
+
+
+
+
+
+
+
+
 

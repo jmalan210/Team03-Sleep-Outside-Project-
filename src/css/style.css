@@ -474,6 +474,43 @@ button {
 
 }
 
+/*Modal*/
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content{
+  background: rgb(255, 255, 255);
+  padding: 1.5rem;
+  border-radius: 8px;
+  width: 40rem;
+  color: #1f1092;
+}
+
+#close-modal{
+  cursor: pointer;
+  float: right;
+  font-size: 20px;
+}
+
+.lookup{
+  background-color: #303030;
+  color: rgb(224, 235, 245);
+  border-radius: 8px;
+  border: 1px solid #303030;
+}
+
+/*footer*/
 footer {
   font-size: var(--small-font);
   padding: 1em;
