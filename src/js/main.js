@@ -25,10 +25,11 @@ closeBtn.addEventListener("click", () => {
     welcomePopUp.close();
 });
 
-couponBtn.addEventListener("click", (e) => {
+couponBtn.addEventListener("submit", (e) => {
     e.preventDefault();
     welcomePopUp.close();
+    setLocalStorage("visited", true);
     removeAllAlerts();
-    alertMessage("Coupon sent to your email");
+    alertMessage("Coupon is sent to your email");
     setTimeout(removeAllAlerts,3000);
 })
