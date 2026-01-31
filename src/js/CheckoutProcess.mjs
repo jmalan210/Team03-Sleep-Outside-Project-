@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import { getLocalStorage, alertMessage, removeAllAlerts} from "./utils.mjs";
-=======
-import { getLocalStorage } from "./utils.mjs";
->>>>>>> ps--discountflag-fixed
 import ExternalServices from "./ExternalServices.mjs";
 
 //External services:
@@ -90,11 +86,7 @@ export default class CheckoutProcess {
     
     }
 
-<<<<<<< HEAD
     async checkout(){
-=======
-    async checkout(form){
->>>>>>> ps--discountflag-fixed
         // get the form element data by the form name
         const formElement = document.forms["checkoutForm"];
         // convert the form data to a JSON order object using the formDataToJSON function
@@ -107,16 +99,10 @@ export default class CheckoutProcess {
         orderList.shipping = this.shipping;
         orderList.items = packageItems(this.list);
 
-<<<<<<< HEAD
-=======
-        console.log(orderList);
-
->>>>>>> ps--discountflag-fixed
         // call the checkout method in the ExternalServices module and send it the JSON order data.
         try {
             const response = await externalServices.checkout(orderList);
             console.log(response);
-<<<<<<< HEAD
             
             window.location.href = "/checkout/success.html";
             localStorage.removeItem("so-cart");
@@ -139,15 +125,6 @@ export default class CheckoutProcess {
            
         }
     } 
-=======
-            localStorage.removeItem(this.key);
-            window.location.href = "../index.html?checkout=success";
-        }
-        catch (e) {
-            console.log(e);// shows error message
-        }
-    }
->>>>>>> ps--discountflag-fixed
 }
 
 function packageItems(items) {
@@ -175,9 +152,5 @@ function formDataToJSON(formElement) {
 
     return convertedJSON;
    
-<<<<<<< HEAD
 }
 
-=======
-}
->>>>>>> ps--discountflag-fixed

@@ -40,7 +40,6 @@ export default class CartList {
         const list = getLocalStorage("so-cart") || [];
         this.renderList(list);
         updateCartFooter();
-<<<<<<< HEAD
     }
     
     
@@ -57,6 +56,7 @@ export default class CartList {
 
             
         });
+        this.updateTotal(list);
     }
 
     changeQuantity(productId, delta) {
@@ -70,16 +70,25 @@ export default class CartList {
             this.removeItem(productId);
             return;
         }
+        this.updateCart(cartItems);
         
-    setLocalStorage("so-cart", cartItems);
-        this.renderList(cartItems);
-        initCartCounter();
-        updateCartFooter();
+        // setLocalStorage("so-cart", cartItems);
+        // this.renderList(cartItems);
+        // initCartCounter();
+        // updateCartFooter();
     }
     
     removeItem(productID) {
         let cartItems = getLocalStorage("so-cart") || [];
         cartItems = cartItems.filter(item => item.Id !== productID);
+        // setLocalStorage("so-cart", cartItems);
+        // this.renderList(cartItems);
+        // initCartCounter();
+        // updateCartFooter();
+        this.updateCart(cartItems);
+    }
+
+    updateCart(cartItems) {
         setLocalStorage("so-cart", cartItems);
         this.renderList(cartItems);
         initCartCounter();
@@ -98,14 +107,6 @@ export default class CartList {
     }
 
 }
-=======
-    }
-    
-    
-    renderList(list) {
-        this.listElement.innerHTML = "";
-        renderListWithTemplate(cartCardTemplate, this.listElement, list);
->>>>>>> ps--discountflag-fixed
 
         this.listElement.querySelectorAll(".cart-card").forEach(card => {
             const id = card.dataset.id;
@@ -116,44 +117,43 @@ export default class CartList {
 
             
         });
-    }
-
-    changeQuantity(productId, delta) {
-    const cartItems = getLocalStorage("so-cart") || [];
-    const item = cartItems.find(i => i.Id === productId);
-        if (!item) return;
-
-        item.quantity += delta;
-
-        if (item.quantity < 1) {
-            this.removeItem(productId);
-            return;
-        }
-        
-    setLocalStorage("so-cart", cartItems);
-        this.renderList(cartItems);
-        initCartCounter();
-        updateCartFooter();
-    }
     
-    removeItem(productID) {
-        let cartItems = getLocalStorage("so-cart") || [];
-        cartItems = cartItems.filter(item => item.Id !== productID);
-        setLocalStorage("so-cart", cartItems);
-        this.renderList(cartItems);
-        initCartCounter();
-        updateCartFooter();
-    }
 
-    updateTotal(list) {
-        if (!this.totalElement) return;
+    // changeQuantity(productId, delta) {
+    // const cartItems = getLocalStorage("so-cart") || [];
+    // const item = cartItems.find(i => i.Id === productId);
+    //     if (!item) return;
 
-        const total = list.reduce(
-            (sum, item) => sum + (item.FinalPrice * (item.quantity ?? 1))
+    //     item.quantity += delta;
+
+    //     if (item.quantity < 1) {
+    //         this.removeItem(productId);
+    //         return;
+    //     }
         
-        ); 
-        this.totalElement.textContent = `$${total.toFixed(2)}`;
-        return total
-    }
+    // setLocalStorage("so-cart", cartItems);
+    //     this.renderList(cartItems);
+    //     initCartCounter();
+    //     updateCartFooter();
+    // }
+    
+    // removeItem(productID) {
+    //     let cartItems = getLocalStorage("so-cart") || [];
+    //     cartItems = cartItems.filter(item => item.Id !== productID);
+    //     setLocalStorage("so-cart", cartItems);
+    //     this.renderList(cartItems);
+    //     initCartCounter();
+    //     updateCartFooter();
+    // }
 
-}
+    // updateTotal(list) {
+    //     if (!this.totalElement) return;
+
+    //     const total = list.reduce(
+    //         (sum, item) => sum + (item.FinalPrice * (item.quantity ?? 1))
+        
+    //     ); 
+    //     this.totalElement.textContent = `$${total.toFixed(2)}`;
+    //     return total
+    // }
+

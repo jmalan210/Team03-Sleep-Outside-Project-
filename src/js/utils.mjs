@@ -99,7 +99,6 @@ export function updateCartFooter() {
     const divTotal = document.querySelector(".cart-footer");
     const displayTotal = document.querySelector(".cart-total");
     const dispQuantity = document.querySelector(".cart-quant");
-<<<<<<< HEAD
 
     const cartItems = getLocalStorage("so-cart") || [];
 
@@ -167,26 +166,24 @@ export function animateCart() {
   
 
 }
-=======
->>>>>>> ps--discountflag-fixed
 
-    const cartItems = getLocalStorage("so-cart") || [];
+//     const cartItems = getLocalStorage("so-cart") || [];
 
-    if (getCartCount() === 0) {
-      divTotal.classList.add("hide");
-      displayTotal.textContent = "";
-      dispQuantity.textContent = "";
-    } else {
-        divTotal.classList.remove("hide");
+//     if (getCartCount() === 0) {
+//       divTotal.classList.add("hide");
+//       displayTotal.textContent = "";
+//       dispQuantity.textContent = "";
+//     } else {
+//         divTotal.classList.remove("hide");
 
         
-        const subTotal = cartItems.reduce((total, item) => total + parseFloat(item.FinalPrice) * (item.quantity ?? 1), 0);
+//         const subTotal = cartItems.reduce((total, item) => total + parseFloat(item.FinalPrice) * (item.quantity ?? 1), 0);
 
-         displayTotal.textContent = `Total Price: $${subTotal.toFixed(2)}`;
-         dispQuantity.textContent = `Total Items: ${getCartCount()}`;
-}
+//          displayTotal.textContent = `Total Price: $${subTotal.toFixed(2)}`;
+//          dispQuantity.textContent = `Total Items: ${getCartCount()}`;
+// }
     
-}
+// }
 
 export function isCardExpired(value) {
   const [month, year] = value.split("/");

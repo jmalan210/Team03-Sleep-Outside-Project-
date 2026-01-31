@@ -18,7 +18,6 @@
 
   </header>
 
-<<<<<<< HEAD
   <main class="divider checkout-page">
     <section class="products">
       <h2>Review & Place your Order</h2>
@@ -32,87 +31,13 @@
         <label>City<input name="city" type="text" required></label>
         <label>State<input name="state" type="text" pattern="[A-Z]{2}" required></label>
         <label>ZIP Code<input name="zip" type="text" id="zip" pattern="\d{5}" required></label>
-=======
-  <main class="divider">
-    <section class="products">
-      <h2>Review & Place your Order</h2>
-    </section>
-    <form id="checkout-form" name="checkoutForm">
-      <fieldset>
-        <legend>Shipping Information</legend>
-        <label>First Name<input 
-          name="fname" 
-          type="text" 
-          required
-          placeholder="Enter your first name">
-        </label>
-        <label>Last Name<input 
-          name="lname" 
-          type="text" 
-          required
-          placeholder="Enter your last name">
-        </label>
-        <label>Street Address<input 
-          name="street" 
-          type="text" 
-          required
-          placeholder="123 Main Street">
-        </label>
-        <label>City<input 
-          name="city" 
-          type="text" 
-          required
-          placeholder="Enter your city">
-        </label>
-        <label>State<input 
-          name="state" 
-          type="text" 
-          pattern="[A-Z]{2}"
-          maxlength="2"
-          required
-          placeholder="CA">
-        </label>
-        <label>ZIP Code<input 
-          name="zip" 
-          type="text" 
-          id="zip" 
-          pattern="\d{5}"
-          required
-          placeholder="12345">
-        </label>
->>>>>>> ps--discountflag-fixed
       </fieldset>
 
       <fieldset>
         <legend>Payment Information</legend>
-<<<<<<< HEAD
         <label>Credit Card Number<input name="cardNumber" type="text" pattern="[0-9]{13,19}" required placeholder="1234123412341234"></label>
         <label>Expiration Date<input name="expiration" type="text" maxlength="5" autocomplete="cc-exp" placeholder="MM/YY" required></label>
         <label>Security Code<input name="code" type="text" pattern="\d{3}" required placeholder="123"></label>
-=======
-        <label>Credit Card Number<input 
-          name="cardNumber" 
-          type="text" 
-          pattern="[0-9]{13,19}" 
-          required 
-          placeholder="1234 1234 1234 1234"></label>
-        <label>Expiration Date<input 
-          name="expiration" 
-          type="text" 
-          maxlength="5"
-          pattern="^(0[1-9]|1[0-2])\/\d{2}$"
-          autocomplete="cc-exp" 
-          placeholder="MM/YY" 
-          required>
-        </label>
-        <label>Security Code<input 
-          name="code" 
-          type="text" 
-          pattern="\d{3}" 
-          required
-          placeholder="123">
-        </label>
->>>>>>> ps--discountflag-fixed
       </fieldset>
       <button id="checkout-btn" type="submit">Checkout</button>
     </form>
