@@ -432,6 +432,20 @@ button {
   width: 70%;
   margin-bottom: 1em;
 }
+
+.alert {
+  background-color: var(--primary-color);
+  border: var(--tertiary-color) solid 1px;
+  padding: 1rem;
+  margin: 1rem;
+  text-align: end;
+  font-weight: bold;
+  
+  * {
+    display: inline;
+    margin: 1rem;
+  }
+}
   
 @media screen and (min-width: 500px) {
   body {

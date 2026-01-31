@@ -118,6 +118,23 @@ export function updateCartFooter() {
     
 }
 
-
+export function alertMessage(message, scroll=true) {
+  const alert = document.createElement("div");
+  alert.classList.add("alert");
+  alert.innerHTML = `
+  <i>${message}</i>
+  <span>✖</span>
+  `;
+  alert.addEventListener("click", (e) => {
+    if (e.target.tagName === "SPAN") {
+      console.log("this is the close btn");
+      alert.remove();
+    }
+  })
+  qs("main").prepend(alert);
+  if (scroll) {
+    window.scrollTo(0, 0);
+  }
+}
 
 

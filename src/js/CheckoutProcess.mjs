@@ -1,4 +1,4 @@
-import { getLocalStorage } from "./utils.mjs";
+import { getLocalStorage, setLocalStorage, alertMessage } from "./utils.mjs";
 import ExternalServices from "./ExternalServices.mjs";
 
 //External services:
@@ -87,26 +87,31 @@ export default class CheckoutProcess {
     }
 
     async checkout(form){
-        // get the form element data by the form name
-        const formElement = document.forms["checkoutForm"];
-        // convert the form data to a JSON order object using the formDataToJSON function
-        const orderList = formDataToJSON(formElement);
-
-        // populate the JSON order object with the order Date, orderTotal, tax, shipping, and list of items
-        orderList.orderDate = new Date().toISOString();
-        orderList.orderTotal = this.orderTotal;
-        orderList.tax = this.tax;
-        orderList.shipping = this.shipping;
-        orderList.items = packageItems(this.list);
-
-        // call the checkout method in the ExternalServices module and send it the JSON order data.
         try {
+            // get the form element data by the form name
+            const formElement = document.forms["checkoutForm"];
+            // convert the form data to a JSON order object using the formDataToJSON function
+            const orderList = formDataToJSON(formElement);
+
+            // populate the JSON order object with the order Date, orderTotal, tax, shipping, and list of items
+            orderList.orderDate = new Date().toISOString();
+            orderList.orderTotal = this.orderTotal;
+            orderList.tax = this.tax;
+            orderList.shipping = this.shipping;
+            orderList.items = packageItems(this.list);
+
+            // call the checkout method in the ExternalServices module and send it the JSON order data.
+
             const response = await externalServices.checkout(orderList);
             console.log(response);
+            setLocalStorage("so-cart", []);
+            window.location.assign("success.html");
+            
+        } catch (err) {
+            alertMessage(Object.values(err.message));
+            console.error(err);
         }
-        catch (e) {
-            console.log(e);// shows error message
-        }
+        
     }
 }
 
