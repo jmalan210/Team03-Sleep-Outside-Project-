@@ -287,7 +287,6 @@ button {
 }
 
 #images-container {
-  /* border: rgba(0, 0, 0, 0.2) 1px solid; */
   position: relative;
   margin: auto;
   padding: 0 20px;
@@ -297,6 +296,27 @@ button {
     .prev, .next {
       display: block;
     }
+  }
+}
+
+#image-options {
+  margin-top: 5px;
+  place-content: start;
+}
+
+.image-preview {
+  border: rgba(0, 0, 0, 0.1) solid 1px;
+  outline: rgba(0, 0, 0, 0.3) solid 1px;
+  outline-offset: 3px;
+  margin: 10px;
+
+  &:hover {
+    outline: rgba(0, 0, 0, 0.4) solid 2px;
+  }
+
+  &.active-img {
+    outline: var(--dark-grey) solid 2px;
+
   }
 }
 

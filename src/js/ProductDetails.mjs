@@ -77,9 +77,14 @@ function productDetailsTemplate(product) {
     
     // Create Image Carousel
     const imgCont = qs("#images-container");
+    const imgOpts = qs("#image-options");
 
     imgCont.innerHTML = `
     <img id="productImage" class="product-image" src="${product.Images.PrimaryExtraLarge}" alt="${product.NameWithoutBrand}">
+    `;
+
+    imgOpts.innerHTML = `
+    <img class="image-preview active-img" src="${product.Images.PrimarySmall}" alt="${product.NameWithoutBrand}" width="50">
     `;
             
     if (product.Images.ExtraImages) {
@@ -87,32 +92,48 @@ function productDetailsTemplate(product) {
             imgCont.innerHTML += `
             <img class="product-image hidden" src="${image.Src}" alt="${product.NameWithoutBrand}">
             `;
+            
+            imgOpts.innerHTML += `
+            <img class="image-preview" src="${image.Src}" alt="${product.NameWithoutBrand}" width="50">
+            `;
         });
 
         imgCont.innerHTML += `
         <a class="prev">&#10094;</a>
-        <a class="next">&#10095;</a>`;
+        <a class="next">&#10095;</a>
+        <div class="img-dots"></div>`;
 
+        let imgPrev = document.getElementsByClassName("image-preview");
         let currentImg = 1;
 
         function changeImage(change) {
             currentImg += change;
 
             let imgs = document.getElementsByClassName("product-image");
-            console.log(imgs);
+            
             if (currentImg > imgs.length) {currentImg = 1}
             if (currentImg < 1) {currentImg = imgs.length}
 
             for (let i = 0; i < imgs.length; i++) {
                 imgs[i].classList.add("hidden");
+                imgPrev[i].classList.remove("active-img");
             }
 
             imgs[currentImg-1].classList.remove("hidden");
+            imgPrev[currentImg-1].classList.add("active-img");
         };
 
         setClick(".prev", () => changeImage(-1));
-        
         setClick(".next", () => changeImage(1));
+        for (let i = 0; i < imgPrev.length; i++) {
+            const img = imgPrev[i];
+            
+            img.addEventListener("click", () => {
+                currentImg = i+1;
+                changeImage(0);
+            })
+        
+        }
     }
 
     window.addEventListener("resize", () => {
